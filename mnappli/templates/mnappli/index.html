@@ -1,0 +1,62 @@
+{% load static %}
+
+
+
+{% if user.is_authenticated %}
+    <p>vous etes connecter {{ user.username }} / <a href="{% url 'account:logout' %}">déconnection</a> </p>
+
+{% else %}
+
+    <P> <a href="{% url 'account:login' %}">connection</a> //
+    <a href="{% url 'account:register' %}">inscription</a></p>
+
+{% endif %}
+
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jojo</title>
+    <link rel="stylesheet" href="{% static 'mnappli/main.css' %}"
+</head>
+<body>
+    <h1 style="color: blue;">MON SUPER APPLI</h1>
+    
+
+    <p><a href="{% url 'mnappli:add' %}" >Ajouter un livre</a></p>
+    <table border="2" width="100%">
+        <tr>
+            <th>Nomlivre</th>
+            <th>NomAuteur</th>
+            <th>Quantité</th>
+            <th colspan="2">Action</th>
+        </tr>
+
+        {% for book in books %}
+        <tr>
+            <td><a href="{% url 'mnappli:show' book.id %}"> {{book.title}}</a></td>
+            <td>{{book.Author}}</td>
+            <td>{{book.quantity}}</td>
+            <td><a href="{% url 'mnappli:edith' book.id %}" >edith</a></td>
+            <td><a href="{% url 'mnappli:remove' book.id %}" >X</a></td>
+
+        </tr>
+        {% endfor %}
+
+
+
+    </table>
+
+    
+       
+       
+
+
+        
+
+       
+  
+</body>
+</html>
+

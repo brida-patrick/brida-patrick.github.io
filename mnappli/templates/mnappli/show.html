@@ -1,0 +1,23 @@
+{% load static %}
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jojo</title>
+    <link rel="stylesheet" href="{% static 'mnappli/main.css' %}"
+</head>
+<body>
+    <h1 style="color: blue;">{{book.title}}</h1>
+
+   
+        
+        <p>Quantité : {{ book.quantity }}</p>
+        <p> Auteur: {{ book.Author.name }} </p>
+        <p><a href="{% url 'mnappli:index' %}">&laquo; revenir a la page d'acceuil</a></p>
+        
+   
+   
+    
+</body>
+</html>

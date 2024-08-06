@@ -1,0 +1,13 @@
+<h1>CONNEXION</h1>
+{% for messages in messages %}
+
+   {{ messages }}
+
+{% endfor %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <input type="submit" value="se connecter">
+</form>
